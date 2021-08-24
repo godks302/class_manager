@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\style.css">
+    <title>3-7 관리페이지</title>
+</head>
+
+<body>
+    <form>
+        <input type="radio" name="tab" id="menu" />
+        <div class="container">
+            <input type="radio" name="tab" checked="checked" id="home" />
+            <section class="home">
+                <h1>학급비 현황</h1>
+                <label for="home"></label>
+                <div class="contents">
+                    <p id="value">0</p>
+                    <style>
+                        #value {
+                            font-size: 5.5vw;
+                            transform-style: preserve-3d;
+                            text-align: center;
+                            font-weight: 900;
+                            margin-top: 150px;
+                            color: rgba(255, 255, 255, 0.85);
+                        }
+                        #cbstyle {
+                            font-size: 4vw;
+                            transform-style: preserve-3d;
+                            text-align: left;
+                            font-weight: 900;
+                            margin-top: 25px;
+                            color: rgba(255, 255, 255, 0.85);
+                        }
+                        .style select {
+                            width: 150px;
+                            height: 30px;
+                            padding-left: 5px;
+                            font-size: 15px;
+                            border-radius: 3px;
+                        }
+                    </style>
+                        <fieldset>
+                            <legend id="cbstyle">추가</legend>
+                            <div>
+                                <div class="style">
+                                    <select name="student">
+                                        <option value="01">강창민</option>
+                                        <option value="02">김기송</option>
+                                        <option value="03">남윤성</option>
+                                        <option value="04">박동현</option>
+                                        <option value="05">박병훈</option>
+                                        <option value="06">박상준</option>
+                                        <option value="07">박정준</option>
+                                        <option value="08">박준수</option>
+                                        <option value="09">박지혁</option>
+                                        <option value="10">박지훈</option>
+                                        <option value="11">서민철</option>
+                                        <option value="12">서현수</option>
+                                        <option value="13">송도연</option>
+                                        <option value="14">신헤성</option>
+                                        <option value="15">윤희승</option>
+                                        <option value="16">이도겸</option>
+                                        <option value="17">이영상</option>
+                                        <option value="18">이정필</option>
+                                        <option value="19">이해안</option>
+                                        <option value="20">임남규</option>
+                                        <option value="21">정민기</option>
+                                        <option value="22">조세연</option>
+                                        <option value="23">차상우</option>
+                                        <option value="24">최성전</option>
+                                        <option value="25">한승현</option>
+                                    </select>
+                                </div>
+                                <div id="cbstyle">
+                                    <input type="checkbox" name="reason" value=1 />교복 미착용(1000)<br />
+                                    <input type="checkbox" name="reason" value=2 />지각(5000)<br />
+                                    <input type="checkbox" name="reason" value=3 />자가진단(2000)<br />
+                                    <input type="checkbox" name="reason" value=4 />청소 미참여(1000)<br />
+                                    <input type="checkbox" name="reason" value=5 />안내문 미제출(1000)<br />
+                                    <script>
+                                        var v_result;
+                                        v_result = 0;
+                                        function test() {
+                                            var obj_length = document.getElementsByName("reason").length;
+
+                                            for (var i = 0; i < obj_length; i++) {
+                                                if (document.getElementsByName("reason")[i].checked == true) {
+                                                    if (document.getElementsByName("reason")[i].value == 1) {
+                                                        v_result += 1000;
+                                                        v_result = v_result;
+                                                    }
+                                                    else if (document.getElementsByName("reason")[i].value == 2) {
+                                                        v_result += 5000;
+                                                    }
+                                                    else if (document.getElementsByName("reason")[i].value == 3) {
+                                                        v_result += 2000;
+                                                    }
+                                                    else if (document.getElementsByName("reason")[i].value == 4) {
+                                                        v_result += 1000;
+                                                    }
+                                                    else {
+                                                        v_result += 1000;
+                                                    }
+                                                }
+                                            }
+                                            alert(v_result);
+                                            document.getElementById('value').innerHTML = "총 " +v_result+ " 원";
+                                        }
+
+
+                                    </script>
+                                </div>
+                                <button onclick="test()">추가</button>
+                            </div>
+                        </fieldset>
+                    <span class="js-clock clock">
+                        00:00
+                    </span>
+                </div>
+            </section>
+            <input type="radio" name="tab" id="ToDo" />
+            <section class="ToDo">
+                <h1>To Do</h1>
+                <label for="ToDo"></label>
+                <div class="contents">
+                    <div class="js-toDo toDo">
+                        <div class="toDo__head">
+                            <span class="toDo__date"></span>
+                            <span>
+                                <ion-icon class="clear-btn" name="backspace"></ion-icon>
+                            </span>
+                        </div>
+                        <div class="toDo__body">
+                            <ul class="toDo__list">
+
+                            </ul>
+                        </div>
+                        <div class="toDo__add">
+                            <ion-icon class="toDo__add-icon" name="add-circle"></ion-icon>
+                            <form class="toDo__form">
+                                <input type="text" style="display: none;">
+                                <input class="toDo__input" type="text" placeholder="Add To Do">
+                            </form>
+                        </div>
+                    </div>
+
+                    <span class="js-clock clock">
+                        00:00
+                    </span>
+                </div>
+            </section>
+            <input type="radio" name="tab" id="calendar" />
+            <section class="calendar">
+                <h1>일정</h1>
+                <label for="calendar"></label>
+                <div class="contents">
+                    준비중
+                </div>
+            </section>
+        </div>
+        <div class="menu">
+            <div>
+                <label for="menu"></label>
+                <label for="home"></label>
+            </div>
+        </div>
+    </form>
+    <script src="js\clock.js"></script>
+    <script src="js\quote.js"></script>
+    <script src="js\sum.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="js\todo.js"></script>
+</body>
+
+</html>
