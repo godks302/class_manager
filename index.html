@@ -81,11 +81,7 @@
                                     <input type="checkbox" name="reason" value=4 />청소 미참여 (1000)<br />
                                     <input type="checkbox" name="reason" value=5 />안내문 미제출 (1000)<br />
                                     <script>
-                                        var v_result = 0;
-                                        var f_result = 0;
-                                        var total = 0;
-                                        var a = 0;
-                                        localStorage.tot = 0;
+
 
                                         function test() {
                                             var obj_length = document.getElementsByName("reason").length;
@@ -110,12 +106,11 @@
 
                                             }
                                         }
-                                        localStorage.getItem('f');
                                         document.getElementById('value').innerHTML = "총 " + localStorage.getItem('tot') + " 원";
 
                                     </script>
                                 </div>
-                                <button onclick="test(total)">추가</button>
+                                <button onclick="test()">추가</button>
                             </div>
                         </fieldset>
                     <span class="js-clock clock">
