@@ -85,6 +85,8 @@
 
                                         function test() {
                                             var obj_length = document.getElementsByName("reason").length;
+                                            localStorage.tot = Number(localStorage.getItem('tot'));
+
                                             for (var i = 0; i < obj_length; i++) {
                                                 if (document.getElementsByName("reason")[i].checked == true) {
                                                     if (document.getElementsByName("reason")[i].value == 1) {
