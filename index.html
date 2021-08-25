@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
                 <h1>학급비 현황</h1>
                 <label for="home"></label>
                 <div class="contents">
-                    <p id="value">0</p>
+                    <p id="value"></p>
                     <style>
                         #value {
                             font-size: 5.5vw;
@@ -44,7 +44,6 @@
                         }
                     </style>
                         <fieldset>
-                            <legend id="cbstyle">추가</legend>
                             <div>
                                 <div class="style">
                                     <select name="student">
@@ -76,45 +75,46 @@
                                     </select>
                                 </div>
                                 <div id="cbstyle">
-                                    <input type="checkbox" name="reason" value=1 />교복 미착용(1000)<br />
-                                    <input type="checkbox" name="reason" value=2 />지각(5000)<br />
-                                    <input type="checkbox" name="reason" value=3 />자가진단(2000)<br />
-                                    <input type="checkbox" name="reason" value=4 />청소 미참여(1000)<br />
-                                    <input type="checkbox" name="reason" value=5 />안내문 미제출(1000)<br />
+                                    <input type="checkbox" name="reason" value=1 />교복 미착용 (1000)<br />
+                                    <input type="checkbox" name="reason" value=2 />지각 (5000)<br />
+                                    <input type="checkbox" name="reason" value=3 />자가진단 (2000)<br />
+                                    <input type="checkbox" name="reason" value=4 />청소 미참여 (1000)<br />
+                                    <input type="checkbox" name="reason" value=5 />안내문 미제출 (1000)<br />
                                     <script>
-                                        var v_result;
-                                        v_result = 0;
+                                        var v_result = 0;
+                                        var f_result = 0;
+                                        var total = 0;
+                                        var a = 0;
+
                                         function test() {
                                             var obj_length = document.getElementsByName("reason").length;
-
                                             for (var i = 0; i < obj_length; i++) {
                                                 if (document.getElementsByName("reason")[i].checked == true) {
                                                     if (document.getElementsByName("reason")[i].value == 1) {
-                                                        v_result += 1000;
-                                                        v_result = v_result;
+                                                        localStorage.tot = Number(localStorage.tot) + 1000;
                                                     }
                                                     else if (document.getElementsByName("reason")[i].value == 2) {
-                                                        v_result += 5000;
+                                                        localStorage.tot = Number(localStorage.tot) + 5000;
                                                     }
                                                     else if (document.getElementsByName("reason")[i].value == 3) {
-                                                        v_result += 2000;
+                                                        localStorage.tot = Number(localStorage.tot) + 2000;
                                                     }
                                                     else if (document.getElementsByName("reason")[i].value == 4) {
-                                                        v_result += 1000;
+                                                        localStorage.tot = Number(localStorage.tot) + 1000;
                                                     }
                                                     else {
-                                                        v_result += 1000;
+                                                        localStorage.tot = Number(localStorage.tot) + 1000;
                                                     }
                                                 }
-                                            }
-                                            alert(v_result);
-                                            document.getElementById('value').innerHTML = "총 " +v_result+ " 원";
-                                        }
 
+                                            }
+                                        }
+                                        localStorage.getItem('f');
+                                        document.getElementById('value').innerHTML = "총 " + localStorage.getItem('tot') + " 원";
 
                                     </script>
                                 </div>
-                                <button onclick="test()">추가</button>
+                                <button onclick="test(total)">추가</button>
                             </div>
                         </fieldset>
                     <span class="js-clock clock">
